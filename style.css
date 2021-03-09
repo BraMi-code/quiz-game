@@ -1,4 +1,4 @@
-#question {
+.question {
     font-family: 'Shadows Into Light', cursive;
     width: 450px;
     border: 1px solid #ccc;
@@ -7,11 +7,11 @@
     box-shadow: 2px 2px #ccc;
 }
 
-#question h1 {
+.question h3 {
     margin-top: 0px;
 }
 
-#question button {
+.question button {
     width: 100%;
     height: 30px;
     margin-top: 8px;

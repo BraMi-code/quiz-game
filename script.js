@@ -53,25 +53,29 @@ function showQuestions(quizQuestions, quiz) {
     var answers;
 
     for (var i=0; i<quizQuestions.length; i++) {
+        console.log(quizQuestions[i].question);
         answers = [];
         for (letter in quizQuestions[i].answers) {
             console.log(letter);
             answers.push(
-                '<label>'
-					+ '<input type="radio" name="question'+i+'" value="'+letter+'">'
-					+ letter + ': '
-					+ quizQuestions[i].answers[letter]
-				+ '</label>'
+                '<button> ' + quizQuestions[i].answers[letter] + '</button>'
             );
         }
-        
         output.push(
-            '<h1 class="question">' + quizQuestions[i].question + '</h1>' +
-            '<button class="answers">' + answers.join('') + '</button>'
+            '<h3 class="question">' + quizQuestions[i].question + '</h3>' +
+            '<div class="answers">' + answers.join('') + '</div>'
         );
     }
-
-    quizContainer.innerHTMK = output.join('');
+    quizContainer.innerHTML = output.join('');
 }
 
-showQuestions(quizQuestions);
+function playQuiz(quizQuestions) {
+    
+    console.log("play the quiz")
+    showQuestions(quizQuestions);
+    console.log(quizQuestions[0]);
+
+}
+
+
+playQuiz(quizQuestions);
