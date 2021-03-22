@@ -35,23 +35,10 @@ const resultsContainer = document.getElementById('results');
 const submitButton =  document.getElementById('submit');
 submitButton.addEventListener('click', showResults);
 
-/* SOUND
+/* SOUND */
 var mySound = document.getElementById('correct-answer');
 var correctAnswer = document.getElementById('correctAns');
 var wrongAnswer = document.getElementById('wrong-answer');
-
-var wrong1 = document.getElementById('wrong1');
-var wrong2 = document.getElementById('wrong2');
-var wrong3 = document.getElementById('wrong3');
-
-function wrongAnswer(e) {
-    alert("Incorrect!");
-    wrongAnswer.play();
-}  
-
-if (correctAnswer === true) {
-    console.log("Correct!");
-} */
 
 function playQuiz(quizQuestions) {
     console.log("Let's start!");
@@ -103,7 +90,13 @@ function showResults() {
             ansContainers[questionNum].style.color = "red";
         }
     });
+
     resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
+    if (numCorrect === quizQuestions.length) {
+        mySound.play();
+    } else if (numCorrect === 0) {
+        wrongAnswer.play();
+    }
 }
 
 playQuiz(quizQuestions);
