@@ -1,33 +1,33 @@
 .question {
-    font-family: 'Shadows Into Light', cursive;
-    width: 450px;
-    border: 1px solid #ccc;
-    background-color: #fbfbfb;
-    padding: 10px;
-    box-shadow: 2px 2px #ccc;
+  font-family: 'Shadows Into Light', cursive;
+  width: 450px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  background-color: #fbfbfb;
+  padding: 10px;
+  box-shadow: 2px 2px #ccc;
 }
 
 .question h3 {
-    margin-top: 20px;
+    margin-top: 20px;  
 }
 
+.nav-buttons {
+  margin: 200px;
+  text-align: center;
+}
 
 .slide{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-  .active-slide{
-    opacity: 1;
-    z-index: 2;
-  }
-  .quiz-container{
-    position: relative;
-    height: 200px;
-    margin-top: 40px;
-  }
-  
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}

@@ -35,13 +35,6 @@ const resultsContainer = document.getElementById('results');
 const submitButton =  document.getElementById('submit');
 submitButton.addEventListener('click', showResults);
 
-const nextQuestion = document.getElementById('nextQuestion');
-nextQuestion.addEventListener('click', showNextSlide);
-
-const previousQuestion = document.getElementById('previousQuestion');
-previousQuestion.addEventListener('click', showPrevSlide);
-
-
 /* SOUND
 var mySound = document.getElementById('correct-answer');
 var correctAnswer = document.getElementById('correctAns');
@@ -75,8 +68,10 @@ function playQuiz(quizQuestions) {
             );
         } 
         output.push(
-            `<h3> ${currentQuestion.question} </h3>
-            <div class="answers"> ${answers.join('')} </div>`
+            `<div class="question slide">
+                <h3>${currentQuestion.question} </h3>
+                <div class="answers"> ${answers.join('')} </div>
+            </div>`
         );
     });
 
@@ -111,6 +106,39 @@ function showResults() {
     resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
 }
 
+playQuiz(quizQuestions);
+
+// Pagination
+const previousQuestnBtn = document.getElementById('previousQuestion');
+previousQuestion.addEventListener('click', showPrevSlide);
+const nextQuestBtn = document.getElementById('nextQuestion');
+nextQuestion.addEventListener('click', showNextSlide);
+
+const questSlides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showSlide(numSlide) {
+    console.log(numSlide);
+    questSlides[currentSlide].classList.remove('active-slide');
+    questSlides[numSlide].classList.add('active-slide');
+    currentSlide = numSlide;
+    console.log("this is a current slide: " + numSlide);
+    if (currentSlide === 0) {
+        previousQuestnBtn.style.display = 'none';
+    }
+    else {
+        previousQuestnBtn.style.display = 'inline-block';
+    }
+    if (currentSlide === questSlides.length-1) {
+        nextQuestBtn.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+    }
+    else {
+        nextQuestBtn.style.display = 'inline-block';
+        submitButton.style.display = 'none';
+    }
+}
+
 function showNextSlide() {
     console.log("next slide");
     showSlide(currentSlide + 1);
@@ -121,9 +149,4 @@ function showPrevSlide() {
     showSlide(currentSlide - 1);
 }
 
-function showSlide(number) {
-    console.log(number);
-}
-
-
-playQuiz(quizQuestions);
+showSlide(currentSlide);
