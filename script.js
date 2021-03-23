@@ -97,6 +97,7 @@ function showResults() {
     } else if (numCorrect === 0) {
         wrongAnswer.play();
     }
+    showShareBtn();
 }
 
 playQuiz(quizQuestions);
@@ -144,10 +145,14 @@ function showPrevSlide() {
 
 showSlide(currentSlide);
 
+const wrapper = document.querySelector(".share-wrapper");
+const shareButton = document.querySelector(".shareBtn");
+const toggleButton = document.querySelector(".toggleBtn");
 
-var shareButton = document.querySelector(".shareBtn");
-	var toggleButton = document.querySelector(".toggleBtn");
+shareButton.addEventListener("click", function(){
+	toggleButton.classList.toggle("active");
+});
 
-	shareButton.addEventListener("click", function(){
-		toggleButton.classList.toggle("active");
-	})
+function showShareBtn() {
+    wrapper.style.display = "block";
+}
