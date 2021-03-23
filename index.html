@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- JavaScript SDK for fb sharing -->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0" nonce="zb6wlJjZ"></script>
+    
+    <!-- Game sound -->
     <audio autoplay="autoplay" id="correct-answer">
         <source src="sounds/correct-answer.mp3">
     </audio>
@@ -15,6 +20,7 @@
         <source src="sounds/wrong-answer.wav">
     </audio>
 
+    <!-- Quiz -->
     <div id="quiz-container">
        <div id="quiz"></div>
     </div>
@@ -25,6 +31,7 @@
         <div id="results"></div>
     </div>
 
+    <!-- Share on social -->
     <div class="share-wrapper">
         <div class="toggleBtn">
             <ul>
@@ -34,8 +41,8 @@
                         <span class="icon"><i class="fas fa-plus"></i></span>
                     </a>
                 </li>
-                <li>
-                    <a href="#" class="sm facebook">
+                <li data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="sm facebook">
                         <span class="icon">
                             <i class="fab fa-facebook-f"></i>
                         </span>
@@ -56,14 +63,6 @@
                             <i class="fab fa-instagram"></i>
                         </span>
                         <span class="text">Instagram</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="sm reddit">
-                        <span class="icon">
-                            <i class="fab fa-reddit-alien"></i>
-                        </span>
-                        <span class="text">Reddit</span>
                     </a>
                 </li>
             </ul>
