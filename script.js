@@ -49,7 +49,7 @@ function playQuiz(quizQuestions) {
         const answers = [];
         for (letter in currentQuestion.answers) {
             answers.push(
-               `<label> 
+               `<label class="answer"> 
                <input type="radio" name="question${questionNum}" value="${letter}"> ${ currentQuestion.answers[letter] } 
                </label>`
             );
@@ -91,13 +91,24 @@ function showResults() {
         }
     });
 
-    resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
+    resultsContainer.innerHTML = `<p class="results-info">${numCorrect} out of ${quizQuestions.length}<p>`;
     if (numCorrect === quizQuestions.length) {
         mySound.play();
+        alert("Great, you did it! :)");
     } else if (numCorrect === 0) {
         wrongAnswer.play();
+        setTimeout(() => {
+            promptQuest();
+        }, 5000);
     }
     showShareBtn();
+}
+
+function promptQuest() {
+    var question = prompt("Would you like to play again?");
+    if (question == "yes") {
+        location.reload();
+    } 
 }
 
 playQuiz(quizQuestions);
@@ -133,6 +144,8 @@ function showSlide(numSlide) {
     }
 }
 
+const wrapper = document.querySelector(".share-wrapper");
+
 function showNextSlide() {
     console.log("next slide");
     showSlide(currentSlide + 1);
@@ -141,11 +154,11 @@ function showNextSlide() {
 function showPrevSlide() {
     console.log("prev");
     showSlide(currentSlide - 1);
+    wrapper.style.display = "none";
 }
 
 showSlide(currentSlide);
 
-const wrapper = document.querySelector(".share-wrapper");
 const shareButton = document.querySelector(".shareBtn");
 const toggleButton = document.querySelector(".toggleBtn");
 
