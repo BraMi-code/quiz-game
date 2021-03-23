@@ -143,3 +143,11 @@ function showPrevSlide() {
 }
 
 showSlide(currentSlide);
+
+
+var shareButton = document.querySelector(".shareBtn");
+	var toggleButton = document.querySelector(".toggleBtn");
+
+	shareButton.addEventListener("click", function(){
+		toggleButton.classList.toggle("active");
+	})

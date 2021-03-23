@@ -1,3 +1,7 @@
+body{
+	background: #ffff;
+}
+
 .question {
   font-family: 'Shadows Into Light', cursive;
   width: 450px;
@@ -9,12 +13,19 @@
 }
 
 .question h3 {
-    margin-top: 20px;  
+    margin: 20px 0px 20px 0px;  
 }
 
 .nav-buttons {
-  margin: 200px;
+  margin: 180px;
   text-align: center;
+}
+
+.button-style {
+  width: 100px;
+	height: 30px;
+	background: #eee;
+  border-radius: 50px;
 }
 
 .slide{
@@ -30,4 +41,127 @@
 .active-slide{
   opacity: 1;
   z-index: 2;
+}
+
+/* Share buttons */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+.wrapper{
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.toggleBtn{
+	width: 210px;
+	height: 60px;
+	background: #eee;
+	border-radius: 50px;
+	overflow: hidden;
+	transition: all 0.2s ease;
+}
+
+.toggleBtn ul li a{
+	display: flex;
+	align-items: center;
+	height: 65px;
+	padding: 0 35px;
+}
+
+.toggleBtn ul li a.shareBtn{
+	justify-content: center;
+	cursor: pointer;
+}
+
+.toggleBtn ul li a.shareBtn .text{
+	font-weight: 4000;
+	font-size: 20px;
+}
+
+.toggleBtn ul li a.shareBtn .icon{
+	width: 25px;
+	height: 25px;
+	background: #999495;
+	display: inline-block;
+	border-radius: 40%;
+	position: relative;
+	transition: all 1s ease;
+  margin-left: 15px;
+}
+
+.toggleBtn ul li a .icon i{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+}
+
+.toggleBtn ul li a.sm .icon{
+	position: relative;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	margin-right: 15px;
+}
+
+.toggleBtn ul li a .text{
+	letter-spacing: 1px;
+}
+
+.toggleBtn ul li a.facebook .icon{
+	background: #3b5998;
+}
+
+.toggleBtn ul li a.facebook .text{
+	color: #3b5998;
+}
+
+.toggleBtn ul li a.twitter .icon{
+	background: #1da1f2;
+}
+
+.toggleBtn ul li a.twitter .text{
+	color: #1da1f2;
+}
+
+.toggleBtn ul li a.instagram .icon{
+	background: #c32aa3;
+}
+
+.toggleBtn ul li a.instagram .text{
+	color: #c32aa3;
+}
+
+.toggleBtn ul li a.reddit .icon{
+	background: #ff4500;
+}
+
+.toggleBtn ul li a.reddit .text{
+	color: #ff4500;
+}
+
+.toggleBtn.active{
+	height: 325px;
+}
+
+.toggleBtn.active ul li a.shareBtn .icon{
+	transform: rotate(45deg);
+}
+
+.toggleBtn ul li a.sm{
+	visibility: hidden;
+}
+
+.toggleBtn.active ul li a.sm {
+    visibility: visible;
+    transition-delay: 0.3s;
 }
