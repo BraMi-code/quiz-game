@@ -6,85 +6,95 @@
 	text-decoration: none;
 }
 
-body{
+body {
 	background: #ffff;
-  text-align: center;
+	text-align: center;
+}
+
+.progress {
+	width: 300px;
+	background-color: #fbfbfb;
+	border: 2px solid black;
+	margin: 20px;
+}
+  
+.bar {
+	width: 33.33%;
+	height: 20px;
+	background-color: green;
 }
 
 .question {
-  font-family: 'Shadows Into Light';
-  width: 450px;
-  margin: 20px;
-  border: 1px solid #ccc;
-  background-color: #fbfbfb;
-  padding: 10px;
-  box-shadow: 2px 2px #ccc;
+	font-family: 'Shadows Into Light';
+	max-width: 500px;
+	margin-top: 50px;
+	border: 1px solid #ccc;
+	background-color: #fbfbfb;
+	padding: 10px;
+	box-shadow: 2px 2px #ccc;
 }
 
 .question h3 {
-    margin: 20px 0px 20px 0px;  
+	margin: 20px 0px 20px 0px;  
 }
 
 .answers {
-  margin-bottom: 20px;
-  text-align: left;
-  display: inline-block;
+	margin-bottom: 20px;
+	text-align: left;
+	display: inline-block;
 }
 
 .answer {
-  display: block;
-  color: dodgerblue;
-  padding: 20px;
+	display: block;
+	padding: 20px;
 }
 
 .nav-buttons {
-  margin-top: 400px;
-  text-align: center;
+	margin-top: 400px;
+	text-align: center;
 }
 
 .results-info {
-  height: 50px;
-  margin: 5%;
-  text-align: center;
-  padding-top: 18px;
-  border: 1px solid blue;
+	height: 50px;
+	margin-top: 20px;
+	margin-left: 45%;
+	width: 120px;
+	text-align: center;
+	padding: 10px;
 }
 
 .button-style {
-  width: 100px;
+	width: 100px;
 	height: 30px;
 	background: #eee;
-  border-radius: 50px;
+	border-radius: 50px;
 }
 
-.slide{
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 90%;
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.5s;
+.slide {
+	position: absolute;
+	margin: 20px 150px 100px 400px;
+	width: 1500px;
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.5s;
 }
 
 .active-slide{
-  opacity: 1;
-  z-index: 2;
+	opacity: 1;
+	z-index: 2;
 }
 
 /* Share buttons */
 
-
-.share-wrapper{
-  display: none;
-  position: absolute;
-  margin: 60px;
-	top: 80%;
-	left: 39%;
+.share-wrapper {
+	display: none;
+	position: absolute;
+	top: 95%;
+	left: 50%;
 	transform: translate(-50%,-50%);
 }
 
-.toggleBtn{
+.toggleBtn {
 	width: 210px;
 	height: 60px;
 	background: #eee;
@@ -93,24 +103,24 @@ body{
 	transition: all 0.2s ease;
 }
 
-.toggleBtn ul li a{
+.toggleBtn ul li a {
 	display: flex;
 	align-items: center;
 	height: 65px;
 	padding: 0 35px;
 }
 
-.toggleBtn ul li a.shareBtn{
+.toggleBtn ul li a.shareBtn {
 	justify-content: center;
 	cursor: pointer;
 }
 
-.toggleBtn ul li a.shareBtn .text{
+.toggleBtn ul li a.shareBtn .text {
 	font-weight: 4000;
 	font-size: 20px;
 }
 
-.toggleBtn ul li a.shareBtn .icon{
+.toggleBtn ul li a.shareBtn .icon {
 	width: 25px;
 	height: 25px;
 	background: #999495;
@@ -118,10 +128,10 @@ body{
 	border-radius: 40%;
 	position: relative;
 	transition: all 1s ease;
-  margin-left: 15px;
+	margin-left: 15px;
 }
 
-.toggleBtn ul li a .icon i{
+.toggleBtn ul li a .icon i {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -129,7 +139,7 @@ body{
 	color: #fff;
 }
 
-.toggleBtn ul li a.sm .icon{
+.toggleBtn ul li a.sm .icon {
 	position: relative;
 	width: 35px;
 	height: 35px;
@@ -137,55 +147,55 @@ body{
 	margin-right: 15px;
 }
 
-.toggleBtn ul li a .text{
+.toggleBtn ul li a .text {
 	letter-spacing: 1px;
 }
 
-.toggleBtn ul li a.facebook .icon{
+.toggleBtn ul li a.facebook .icon {
 	background: #3b5998;
 }
 
-.toggleBtn ul li a.facebook .text{
+.toggleBtn ul li a.facebook .text {
 	color: #3b5998;
 }
 
-.toggleBtn ul li a.twitter .icon{
+.toggleBtn ul li a.twitter .icon {
 	background: #1da1f2;
 }
 
-.toggleBtn ul li a.twitter .text{
+.toggleBtn ul li a.twitter .text {
 	color: #1da1f2;
 }
 
-.toggleBtn ul li a.instagram .icon{
+.toggleBtn ul li a.instagram .icon {
 	background: #c32aa3;
 }
 
-.toggleBtn ul li a.instagram .text{
+.toggleBtn ul li a.instagram .text {
 	color: #c32aa3;
 }
 
-.toggleBtn ul li a.reddit .icon{
+.toggleBtn ul li a.reddit .icon {
 	background: #ff4500;
 }
 
-.toggleBtn ul li a.reddit .text{
+.toggleBtn ul li a.reddit .text {
 	color: #ff4500;
 }
 
-.toggleBtn.active{
+.toggleBtn.active {
 	height: 325px;
 }
 
-.toggleBtn.active ul li a.shareBtn .icon{
+.toggleBtn.active ul li a.shareBtn .icon {
 	transform: rotate(45deg);
 }
 
-.toggleBtn ul li a.sm{
+.toggleBtn ul li a.sm {
 	visibility: hidden;
 }
 
 .toggleBtn.active ul li a.sm {
-    visibility: visible;
-    transition-delay: 0.3s;
+	visibility: visible;
+	transition-delay: 0.3s;
 }

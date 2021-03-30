@@ -28,12 +28,38 @@ var quizQuestions = [
     }
 ];
 
+let gameLevel = 1;
+let width = 33.33;
+
+function move() {
+    gameLevel++;
+    console.log("game level: " + gameLevel);
+    let myBar = document.getElementById('myBar');
+    width += 33.33;
+
+    console.log(width);
+    if (width >= 100) {
+        gameLevel = 0;
+    } else {
+        myBar.style.width = width + "%";
+        console.log(width);
+
+    }
+}
+
 const quizContainer = document.getElementById('quiz');
 
 const resultsContainer = document.getElementById('results');
 
 const submitButton =  document.getElementById('submit');
 submitButton.addEventListener('click', showResults);
+
+const shareButton = document.querySelector(".shareBtn");
+const toggleButton = document.querySelector(".toggleBtn");
+
+shareButton.addEventListener("click", function(){
+	toggleButton.classList.toggle("active");
+});
 
 /* SOUND */
 var mySound = document.getElementById('correct-answer');
@@ -97,18 +123,8 @@ function showResults() {
         alert("Great, you did it! :)");
     } else if (numCorrect === 0) {
         wrongAnswer.play();
-        setTimeout(() => {
-            promptQuest();
-        }, 5000);
     }
     showShareBtn();
-}
-
-function promptQuest() {
-    var question = prompt("Would you like to play again?");
-    if (question == "yes") {
-        location.reload();
-    } 
 }
 
 playQuiz(quizQuestions);
@@ -119,11 +135,19 @@ previousQuestion.addEventListener('click', showPrevSlide);
 const nextQuestBtn = document.getElementById('nextQuestion');
 nextQuestion.addEventListener('click', showNextSlide);
 
-const questSlides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+function showNextSlide() {
+    console.log("next slide");
+    showSlide(currentSlide + 1);
+    move();
+}
+
+function showPrevSlide() {
+    console.log("prev");
+    showSlide(currentSlide - 1);
+    wrapper.style.display = "none";
+}
 
 function showSlide(numSlide) {
-    console.log(numSlide);
     questSlides[currentSlide].classList.remove('active-slide');
     questSlides[numSlide].classList.add('active-slide');
     currentSlide = numSlide;
@@ -144,27 +168,12 @@ function showSlide(numSlide) {
     }
 }
 
-const wrapper = document.querySelector(".share-wrapper");
-
-function showNextSlide() {
-    console.log("next slide");
-    showSlide(currentSlide + 1);
-}
-
-function showPrevSlide() {
-    console.log("prev");
-    showSlide(currentSlide - 1);
-    wrapper.style.display = "none";
-}
+const questSlides = document.querySelectorAll(".slide");
+let currentSlide = 0;
 
 showSlide(currentSlide);
 
-const shareButton = document.querySelector(".shareBtn");
-const toggleButton = document.querySelector(".toggleBtn");
-
-shareButton.addEventListener("click", function(){
-	toggleButton.classList.toggle("active");
-});
+const wrapper = document.querySelector(".share-wrapper");
 
 function showShareBtn() {
     wrapper.style.display = "block";
