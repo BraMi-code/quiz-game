@@ -25,20 +25,29 @@ var quizQuestions = [
             c: 'Madrid'
         },
         correctAns: 'c'
+    },
+    {
+        question: "What is the smallest country in the world?",
+        answers: {
+            a: 'Vatican City',
+            b: 'Santiago',
+            c: 'Andora'
+        },
+        correctAns: 'a'
     }
 ];
 
 let gameLevel = 1;
-let width = 33.33;
+let width = 25;
 
 function move() {
     gameLevel++;
     console.log("game level: " + gameLevel);
     let myBar = document.getElementById('myBar');
-    width += 33.33;
+    width += 25;
 
     console.log(width);
-    if (width >= 100) {
+    if (width > 100) {
         gameLevel = 0;
     } else {
         myBar.style.width = width + "%";
@@ -99,6 +108,8 @@ function showResults() {
 
     // keep track of user's answers
     let numCorrect = 0;
+    let points = 0;
+    console.log("current points: " + points);
 
     quizQuestions.forEach((currentQuestion, questionNum) => {
         // find selected answer
@@ -109,7 +120,9 @@ function showResults() {
         // if answer is correct
         if (userAnswer === currentQuestion.correctAns) {
             numCorrect++;
+            points =+ 20;
             console.log(numCorrect);
+
         ansContainers[questionNum].style.color = "lightgreen";
         }
         else {
@@ -136,6 +149,7 @@ const nextQuestBtn = document.getElementById('nextQuestion');
 nextQuestion.addEventListener('click', showNextSlide);
 
 function showNextSlide() {
+
     console.log("next slide");
     showSlide(currentSlide + 1);
     move();
@@ -152,6 +166,7 @@ function showSlide(numSlide) {
     questSlides[numSlide].classList.add('active-slide');
     currentSlide = numSlide;
     console.log("this is a current slide: " + numSlide);
+
     if (currentSlide === 0) {
         previousQuestnBtn.style.display = 'none';
     }
