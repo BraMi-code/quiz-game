@@ -51,8 +51,6 @@ function move() {
         gameLevel = 0;
     } else {
         myBar.style.width = width + "%";
-        console.log(width);
-
     }
 }
 
@@ -76,7 +74,6 @@ var correctAnswer = document.getElementById('correctAns');
 var wrongAnswer = document.getElementById('wrong-answer');
 
 function playQuiz(quizQuestions) {
-    console.log("Let's start!");
     // variable to store HTML
     const output = [];
 
@@ -101,15 +98,15 @@ function playQuiz(quizQuestions) {
     quizContainer.innerHTML = output.join('');
 }
 
-function showResults() {
+let points;
+
+function showResults(points) {
     console.log('results');
     // gather answer containers from quiz
     const ansContainers = quizContainer.querySelectorAll('.answers');
 
     // keep track of user's answers
     let numCorrect = 0;
-    let points = 0;
-    console.log("current points: " + points);
 
     quizQuestions.forEach((currentQuestion, questionNum) => {
         // find selected answer
@@ -120,8 +117,9 @@ function showResults() {
         // if answer is correct
         if (userAnswer === currentQuestion.correctAns) {
             numCorrect++;
-            points =+ 20;
-            console.log(numCorrect);
+            points = numCorrect * 20;
+            console.log("num correct: " + numCorrect);
+            console.log("points: " + points);
 
         ansContainers[questionNum].style.color = "lightgreen";
         }
@@ -149,7 +147,6 @@ const nextQuestBtn = document.getElementById('nextQuestion');
 nextQuestion.addEventListener('click', showNextSlide);
 
 function showNextSlide() {
-
     console.log("next slide");
     showSlide(currentSlide + 1);
     move();
