@@ -120,6 +120,8 @@ function showResults(points) {
             points = numCorrect * 20;
             console.log("num correct: " + numCorrect);
             console.log("points: " + points);
+            let strPoints = JSON.stringify(points);
+    localStorage.setItem('points', strPoints);
 
         ansContainers[questionNum].style.color = "lightgreen";
         }
@@ -179,6 +181,8 @@ function showSlide(numSlide) {
         submitButton.style.display = 'none';
     }
 }
+
+console.log(localStorage);
 
 const questSlides = document.querySelectorAll(".slide");
 let currentSlide = 0;
