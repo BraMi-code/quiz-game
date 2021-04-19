@@ -117,18 +117,22 @@ function showResults(points) {
         // if answer is correct
         if (userAnswer === currentQuestion.correctAns) {
             numCorrect++;
-            points = numCorrect * 20;
             console.log("num correct: " + numCorrect);
-            console.log("points: " + points);
-            let strPoints = JSON.stringify(points);
-    localStorage.setItem('points', strPoints);
-
-        ansContainers[questionNum].style.color = "lightgreen";
+           
+       /* ansContainers[questionNum].style.color = "lightgreen";
         }
         else {
             ansContainers[questionNum].style.color = "red";
-        }
+        */ } 
+      
     });
+
+    points = numCorrect * 20;
+    console.log("points: " + points);
+    
+    let strPoints = JSON.stringify(points);
+    localStorage.setItem('points', strPoints);
+    showHighScore();
 
     resultsContainer.innerHTML = `<p class="results-info">${numCorrect} out of ${quizQuestions.length}<p>`;
     if (numCorrect === quizQuestions.length) {
@@ -193,4 +197,9 @@ const wrapper = document.querySelector(".share-wrapper");
 
 function showShareBtn() {
     wrapper.style.display = "block";
+}
+
+function showHighScore() {
+    let strToObj = JSON.parse(localStorage.getItem("points"));
+    alert('Your high score is: ' + strToObj);
 }
