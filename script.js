@@ -69,9 +69,9 @@ shareButton.addEventListener("click", function(){
 });
 
 /* SOUND */
-var mySound = document.getElementById('correct-answer');
-var correctAnswer = document.getElementById('correctAns');
-var wrongAnswer = document.getElementById('wrong-answer');
+const mySound = document.getElementById('correct-answer');
+const correctAnswer = document.getElementById('correctAns');
+const wrongAnswer = document.getElementById('wrong-answer');
 
 function playQuiz(quizQuestions) {
     // variable to store HTML
@@ -129,7 +129,7 @@ function showResults(points) {
 
     points = numCorrect * 20;
     console.log("points: " + points);
-    
+
     let strPoints = JSON.stringify(points);
     localStorage.setItem('points', strPoints);
     showHighScore();
